@@ -1,4 +1,5 @@
 # SeniorLens 🕵️‍♂️
+![header](assets/header.png)
 
 SeniorLens is an open-source CLI tool and Git-integrated code review system built entirely in **Go**. It analyzes your code and commit history to detect bad patterns, flag weak commits, and track your progression from junior to senior developer—all running locally, with **zero cloud dependency**.
 
