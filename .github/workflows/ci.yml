@@ -73,7 +73,7 @@ jobs:
 
       - name: Build
         run: |
-          GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o bin/seniorlens-${{ matrix.os }}-${{ matrix.arch }} .
+          GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o bin/seniorlens-${{ matrix.os }}-${{ matrix.arch }} ./cmd/seniorlens
       - uses: actions/upload-artifact@v7
         with:
           name: seniorlens-${{ matrix.os }}-${{ matrix.arch }}
