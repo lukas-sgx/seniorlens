@@ -15,7 +15,7 @@ func header(version string, analysisVersion string) {
 				   YELLOW + "⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣦⠀⠀⠈⠉⠛⠓⠲⠶⠖⠚⠋⠉⠀⠀⠀⠀⠀⠀   \n"+
 				   YELLOW + "⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   " + GREEN + "           STEP FROM JUNIOR TO SENIOR | Code Smells & Practices Detector\n"+
 				   YELLOW + "     ⣾⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                 " + SetBlue("Version " + version) + " " + SetWhite("|") + SetPurple(" Analysis: " + analysisVersion)+ " " + SetWhite("|") + SetBlue(" Engine: SL-Core 2.1\n")+
-				   YELLOW + "     ⠈⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+				   YELLOW + "     ⠈⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" + WHITE
 		
 	fmt.Println(ClearScreen)
 	fmt.Println(asciiTop)

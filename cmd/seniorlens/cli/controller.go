@@ -16,8 +16,8 @@ var rootCmd = &cobra.Command{
 }
 
 func initFlags() {
-	rootCmd.PersistentFlags().StringVarP(&directory, "directory", "d", ".", "set the directory of analyze")
-	rootCmd.PersistentFlags().BoolVarP(&recursive, "recursive", "r", true, "set recursive directory research")
+	rootCmd.Flags().StringVarP(&directory, "directory", "d", ".", "set the directory of analyze")
+	rootCmd.Flags().BoolVarP(&recursive, "recursive", "r", true, "set recursive directory research")
 }
 
 func Controller() error {
