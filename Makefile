@@ -59,4 +59,4 @@ clean: bin/$(NAME)
 
 re: clean all
 
-.PHONY: all clean re
+.PHONY: all linux-amd64 linux-arm64 linux windows-amd64 windows-arm64 windows macos-amd64 macos-arm64 macos clean re
