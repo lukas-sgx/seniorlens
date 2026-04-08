@@ -1,6 +1,7 @@
 module github.com/lukas-sgx/seniorlens
 
 go 1.25
+
 toolchain go1.25.8
 
 require github.com/spf13/cobra v1.10.2
