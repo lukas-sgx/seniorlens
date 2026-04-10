@@ -102,14 +102,14 @@ jobs:
           echo "" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - name: Create PR dev -> main
+      - name: Create PR ${{ github.ref_name }} -> main
         run: |
           gh pr create \
             --title "merge: ${{ github.ref_name }} -> main" \
             --body "$COMMITS_LIST" \
             --reviewer "copilot" \
             --base main \
-            --head dev || echo "PR already exists or could not be created"
+            --head ${{ github.ref_name }} || echo "PR already exists or could not be created"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
