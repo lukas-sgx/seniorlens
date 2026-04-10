@@ -16,12 +16,14 @@ type Commit struct {
 }
 
 func setHead(dir string) (*git.Repository, *plumbing.Reference, error) {
+	var head *plumbing.Reference
+
 	repo, err := git.PlainOpen(dir)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	head, err := repo.Head()
+	head, err = repo.Head()
 	if err != nil {
 		return nil, nil, err
 	}
@@ -29,21 +31,9 @@ func setHead(dir string) (*git.Repository, *plumbing.Reference, error) {
 	return repo, head, nil
 }
 
-func listCommit(dir string) ([]Commit, error) {
-	var commits []Commit
-	repo, head, err := setHead(dir)
-
-	if err != nil {
-		return commits, err
-	}
-
-	iter, err := repo.Log(&git.LogOptions{From: head.Hash()})
-	if err != nil {
-		return commits, err
-	}
-
-	err = iter.ForEach(func(c *object.Commit) error {
-		commits = append(commits, Commit{
+func appendCommit(commits *[]Commit, objects object.CommitIter) error {
+	err := objects.ForEach(func(c *object.Commit) error {
+		*commits = append(*commits, Commit{
 			Message: strings.Split(c.Message, "\n")[0],
 			Hash:    c.Hash.String()[:7],
 			Author:  c.Author.Name,
@@ -52,6 +42,24 @@ func listCommit(dir string) ([]Commit, error) {
 		return nil
 	});
 	
+	return err
+}
+
+func listCommit(dir string) ([]Commit, error) {
+	var commits []Commit
+	var objects object.CommitIter
+
+	repo, head, err := setHead(dir)
+	if err != nil {
+		return commits, err
+	}
+
+	objects, err = repo.Log(&git.LogOptions{From: head.Hash()})
+	if err != nil {
+		return commits, err
+	}
+
+	err = appendCommit(&commits, objects)
 	if err != nil {
 		return commits, err
 	}
