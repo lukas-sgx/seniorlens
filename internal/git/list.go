@@ -42,7 +42,7 @@ func listCommit(dir string) ([]Commit, error) {
 		return commits, err
 	}
 
-	iter.ForEach(func(c *object.Commit) error {
+	err = iter.ForEach(func(c *object.Commit) error {
 		commits = append(commits, Commit{
 			Message: strings.Split(c.Message, "\n")[0],
 			Hash:    c.Hash.String()[:7],
@@ -50,7 +50,11 @@ func listCommit(dir string) ([]Commit, error) {
 			Date:    c.Author.When.Format("2006-01-02 15:04:05"),
 		})
 		return nil
-	})
+	});
+	
+	if err != nil {
+		return commits, err
+	}
 
 	return commits, nil
 }
