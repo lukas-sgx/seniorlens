@@ -2,7 +2,7 @@ module github.com/lukas-sgx/seniorlens
 
 go 1.25.0
 
-toolchain go1.25.8
+toolchain go1.25.9
 
 require (
 	github.com/go-git/go-git/v5 v5.17.2
