@@ -1,4 +1,4 @@
-package cli
+package ui
 
 var (
 	ClearScreen = "\033[2J\033[H"
@@ -9,6 +9,8 @@ var (
 	BLUE = "\033[36m"
 	GREY = "\033[37m"
 	WHITE = "\033[0m"
+	BOLD = "\033[1m"
+	UNDERLINE = "\033[4m"
 )
 
 func SetWhite(s string) string {
@@ -33,4 +35,12 @@ func SetPurple(s string) string {
 
 func SetBlue(s string) string {
 	return BLUE + s + WHITE
+}
+
+func SetBold(s string) string {
+	return BOLD + s + WHITE
+}
+
+func SetUnderline(s string) string {
+	return UNDERLINE + s + WHITE
 }
